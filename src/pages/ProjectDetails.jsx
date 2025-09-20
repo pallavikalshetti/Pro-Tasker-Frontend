@@ -77,57 +77,79 @@ export default function ProjectDetails() {
 
   if (!project) return <p>Loading project...</p>;
 
-  return (
-    <div className="p-6">
-      <h2 className="text-2xl mb-4">Project Details</h2>
 
-      <div className="project-card">
-        <h3 className="text-xl font-bold">{project.name}</h3>
-        <p>{project.description}</p>
-      </div>
-
-      <div className="add-project-link">
-        <Link to={`/projects/${id}/tasks`} className="text-blue-600 underline">Add New Task
-        </Link>
-      </div>
-
-      <div className="task-section">
-        <h3>Tasks</h3>
-
-        {tasks.length === 0 ? (
-          <p>No tasks added yet.</p>
-        ) : (
-          <div className="task-list">
-            {tasks.map((task) => (
-              <div key={task._id} className="task-card">
-                <h4>{task.title}</h4>
-                <p>{task.description}</p>
-
-                <div className="task-controls">
-                  <select
-                    value={task.status}
-                    onChange={(e) => handleStatusChange(task._id, e.target.value)}
-                  >
-                    <option value="To Do">To Do</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Done">Done</option>
-                  </select>
-
-                  <div className="task-buttons">
-                    <Link to={`/tasks/edit/${task._id}`}>
-                           Update
-                      </Link>
-
-                    <button onClick={() => handleDeleteTask(task._id)}>
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+return (
+  <div className="project-details-container">
+    <h1 className="text-2xl mb-4">Project Details</h1>
+    
+    <div><h3>Project Name</h3></div>
+    <div className="project-card">
+      <p>{project.name}</p>
     </div>
-  );
+    
+    <div><h3>Project Description</h3></div>
+    <div className="project-card">
+      <p>{project.description}</p>
+    </div>
+    
+    <div className="dashboard-header-row">
+      <h2>Project Tasks</h2>
+      <Link to={`/projects/${id}/tasks`} className="underline-link">Add New Task</Link>
+    </div>
+    {/* Tasks Section */}
+    <div className="task-section">
+      {tasks.length === 0 ? (
+        <p>No tasks added yet.</p>
+      ) : (
+        <div className="project-table-wrapper">
+          <table className="project-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tasks.map((task) => (
+                <tr key={task._id}>
+                  <td data-label="Title">{task.title}</td>
+                  <td data-label="Description">{task.description}</td>
+                  <td data-label="Status">
+                    <select
+                      value={task.status}
+                      onChange={(e) => handleStatusChange(task._id, e.target.value)}
+                    >
+                      <option value="To Do">To Do</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Done">Done</option>
+                    </select>
+                  </td>
+                  <td data-label="Actions">
+                    <div className="action-buttons">
+                      <button
+                        className="action-button update"
+                        onClick={() => handleUpdate(task._id)}
+                      >
+                        Update
+                      </button>
+                      <button
+                        className="action-button delete"
+                        onClick={() => handleDeleteTask(task._id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 }

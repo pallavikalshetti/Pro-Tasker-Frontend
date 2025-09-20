@@ -37,7 +37,10 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h2 className="dashboard-title">My Projects</h2>
+      <div className="dashboard-header-row">
+      <h3 className="dashboard-header">My Projects</h3>
+      <Link to="/projects" className="underline-link">Add New Project</Link>
+      </div>
       {projects.length === 0 ? (
         <p>No projects found.</p>
       ) : (
@@ -69,9 +72,6 @@ export default function Dashboard() {
           </table>
         </div>
       )}
-      <div className="add-project-link">
-        <Link to="/projects" className="primary">+ Add New Project</Link>
-      </div>
     </div>
   );
 }

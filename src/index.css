@@ -406,20 +406,6 @@ button.primary:hover {
   margin-top: 32px;
 }
 
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.task-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-  border: 1px solid #eee;
-}
-
 .task-card h4 {
   margin: 0 0 8px 0;
   font-size: 1.1rem;
@@ -473,15 +459,6 @@ button.primary:hover {
   background-color: var(--brand-green-dark);
 }
 
-.task-buttons button {
-  background-color: #d64545;
-  color: white;
-}
-
-.task-buttons button:hover {
-  background-color: #b83232;
-}
-
 /* --- Responsive: Task Cards --- */
 @media (max-width: 600px) {
   .task-controls {
@@ -499,4 +476,89 @@ button.primary:hover {
   .task-buttons button {
     width: 100%;
   }
+}
+/* Center project details card */
+.project-details-container {
+  max-width: 800px;
+  margin: 0 auto;   /* centers horizontally */
+  padding: 24px;
+}
+
+/* Tasks header with Add button/link */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.add-task-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.add-task-link:hover {
+  text-decoration: underline;
+}
+/* Tasks container (one card holding all tasks) */
+.task-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Each row for a task inside the container */
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.task-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.task-info h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.task-info p {
+  margin: 4px 0 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+/* --- Dashboard Header Row --- */
+.dashboard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dashboard-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+.underline-link {
+  text-decoration: none; /* no underline by default */
+  color: #646cff; /* link color */
+  transition: text-decoration 0.2s, color 0.2s; /* smooth hover effect */
+}
+
+.underline-link:hover {
+  text-decoration: underline; /* underline on hover */
+  color: #3e5bcc; /* optional color change on hover */
 }
