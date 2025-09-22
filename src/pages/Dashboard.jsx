@@ -41,9 +41,7 @@ export default function Dashboard() {
       <h3 className="dashboard-header">My Projects</h3>
       <Link to="/projects" className="underline-link">Add New Project</Link>
       </div>
-      {projects.length === 0 ? (
-        <p>No projects found.</p>
-      ) : (
+      
         <div className="project-table-wrapper">
           <table className="project-table">
             <thead>
@@ -54,7 +52,10 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody>
-                {projects.map((project) => (
+                {projects.length === 0 ? (
+                  <p>No projects found.</p>
+                ) : (
+                projects.map((project) => (
                   <tr key={project._id}>
                     <td data-label="Name">
                       <Link to={`/projects/${project._id}`} className="project-name-link">{project.name}</Link>
@@ -67,11 +68,12 @@ export default function Dashboard() {
                       </div>
                     </td>
                   </tr>
-                ))}
+                ))
+                )}
               </tbody>
           </table>
         </div>
-      )}
+      
     </div>
   );
 }
