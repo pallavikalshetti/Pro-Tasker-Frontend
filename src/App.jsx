@@ -23,7 +23,7 @@ export default function App() {
                     <Route path="/dashboard" element={<ProtectedRoute> <Dashboard /> </ProtectedRoute>} />
                     <Route path="/projects/:id" element={<ProtectedRoute><ProjectDetails /></ProtectedRoute>} />
                     <Route path="/projects" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-                    <Route path="/projects/:id/tasks" element={<ProtectedRoute><AddTask /></ProtectedRoute>} />
+                    <Route path="/tasks/projects/:id" element={<ProtectedRoute><AddTask /></ProtectedRoute>} />
                     <Route path="/tasks/edit/:id" element={<ProtectedRoute><EditTask /></ProtectedRoute>} />
                     <Route path="/projects/edit/:id" element={<ProtectedRoute><EditProject /></ProtectedRoute>} />
                     <Route path="*" element={<NotFound />} />

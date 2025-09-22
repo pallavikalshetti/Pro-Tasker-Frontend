@@ -4,7 +4,7 @@ import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 
 export default function EditTask() {
-  const { id } = useParams(); // This should be the task ID
+  const { id } = useParams();
   const [task, setTask] = useState({ title: "", description: "", status: "To Do" });
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -17,8 +17,7 @@ export default function EditTask() {
         const res = await api.get(`/api/tasks/${id}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
-        console.log("Fetched task data:", res.data); // ✅ Add this line
-        //setTask(res.data);
+        console.log("Fetched task data:", res.data);
          setTask({ 
           title: res.data.title || "",
           description: res.data.description || "",
@@ -27,13 +26,12 @@ export default function EditTask() {
       } catch (err) {
         console.error("Failed to fetch task:", err);
       } finally {
-        setLoading(false); // stop loading
+        setLoading(false);
       }
     };
     fetchTask();
   }, [id, user.token]);
 
-  // Fix here: using name, not title
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask((prevTask) => ({
@@ -48,17 +46,11 @@ export default function EditTask() {
       await api.put(`/api/tasks/${id}`, task, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
-      navigate(-1); // Go back to previous page or use `/projects/:projectId`
-      //navigate(`/projects/${id}`);
+      navigate(-1); 
     } catch (err) {
       console.error("Failed to update task:", err);
     }
   };
-
-   // If still loading or task is not fetched yet, show loading
-  if (loading || !task) {
-    return <p>Loading task...</p>;
-  }
 
   return (
     <div className="edit-page card">

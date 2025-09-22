@@ -1,7 +1,6 @@
 ## Frontend README
 ## Pro-Tasker Frontend
-The frontend of Pro-Tasker is a modern, responsive, and intuitive web application designed for collaborative project and task management. Built with React and leveraging modern state management with Context API, the frontend provides users with a seamless experience to manage their tasks and projects, whether they are working solo or collaborating with a small team.
-
+The frontend of Pro-Tasker is a modern, responsive, and intuitive web application designed for project and task management. Built with React and leveraging modern state management with Context API, the frontend provides users with a seamless experience to manage their tasks and projects.
 This application interacts with a Node.js/Express backend through a set of RESTful API endpoints and is designed to ensure a smooth user experience while being scalable for teams of various sizes.
 
 # Table of Contents
@@ -18,9 +17,9 @@ React Router for navigation
 Context API for global state management
 Axios for API calls
 
-# Repository Link:
-# GitHub Repository: Pro-Tasker Frontend
-# Live Demo on Vercel/Netlify/Render: Pro-Tasker Frontend (Live)
+# Repository Link: 
+# GitHub Repository: Pro-Tasker Frontend => https://github.com/pallavikalshetti/Pro-Tasker-Frontend
+# Live Demo on Render: Pro-Tasker Frontend (Live) => https://pro-tasker-frontend-1n7v.onrender.com
 
 # Setup & Installation
 # Clone the repository:
@@ -45,7 +44,7 @@ Task Management: Within a project, users can create, update, and delete tasks, e
 Responsive Design: The app is fully responsive, adapting to desktop, tablet, and mobile screen sizes, providing a consistent experience across devices.
 
 # Deployment:
-You can deploy the frontend to platforms like Netlify or Vercel.
+You can deploy the frontend to platforms like Netlify or Vercel or Render.
 Make sure to configure the environment variable REACT_APP_API_URL with the production API URL.
 Ensure your backend API is running before trying to access the frontend.
 
