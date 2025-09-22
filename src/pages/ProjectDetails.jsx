@@ -91,9 +91,7 @@ return (
     </div>
     {/* Tasks Section */}
     <div className="task-section">
-      {tasks.length === 0 ? (
-        <p>No tasks added yet.</p>
-      ) : (
+     
         <div className="project-table-wrapper">
           <table className="project-table">
             <thead>
@@ -105,7 +103,10 @@ return (
               </tr>
             </thead>
             <tbody>
-              {tasks.map((task) => (
+               {tasks.length === 0 ? (
+                  <p>No tasks added yet.</p>
+                ) : (
+              tasks.map((task) => (
                 <tr key={task._id}>
                   <td data-label="Title">{task.title}</td>
                   <td data-label="Description">{task.description}</td>
@@ -123,11 +124,11 @@ return (
                     </div>
                   </td>
                 </tr>
-              ))}
+              )))}
             </tbody>
           </table>
         </div>
-      )}
+      
     </div>
   </div>
   );
